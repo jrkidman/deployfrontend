@@ -11,7 +11,9 @@ const HomePage = ({ clientMessage, setClientMessage, serverMessage, sendReceiveM
             <input
                 type="text"
                 onChange={(event) => {
-                    setClientMessage(event.target.value)
+                    const dateTime = new Date();
+                    const newClientMessage = `Message: ${event.target.value} at time ${dateTime.toString()}`
+                    setClientMessage(newClientMessage)
                 }}
             >
             </input>
@@ -22,8 +24,6 @@ const HomePage = ({ clientMessage, setClientMessage, serverMessage, sendReceiveM
                 id="send"
                 type="submit"
                 onClick={(event) => {
-                    const dateTime = new Date();
-                    setClientMessage(`Message: ${clientMessage} at time ${dateTime.toString()}`);
                     sendReceiveMessage();
                 }}>
 
