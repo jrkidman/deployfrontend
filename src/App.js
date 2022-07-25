@@ -11,6 +11,7 @@ function App() {
   const [serverMessage, setServerMessage] = useState('');
 
   const sendReceiveMessage = async () => {
+    console.log("client message: ", clientMessage)
     const response = await fetch(`${urlEndpoint}/post-message`, {
       method: 'POST',
       headers: {
