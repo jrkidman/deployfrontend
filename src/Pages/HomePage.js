@@ -4,18 +4,16 @@ import React from 'react'
 const HomePage = ({ clientMessage, setClientMessage, serverMessage, sendReceiveMessage }) => {
     return (
         <div>
-            <div>clientMessage</div>
-            <div>serverMessage</div>
+            <div>Client:{clientMessage}</div>
+            <div>Server:{serverMessage}</div>
 
             <label>Input:</label>
             <input
                 type="text"
-                value={clientMessage}
                 onChange={(event) => {
-                    const newClientMessage = event.target.value;
-                    const dateTime = new Date();
-                    setClientMessage(`Message: ${newClientMessage} at time ${dateTime.toString()}`);
-                }}>
+                    setClientMessage(event.target.value)
+                }}
+            >
             </input>
             <br></br>
             <br></br>
@@ -23,9 +21,12 @@ const HomePage = ({ clientMessage, setClientMessage, serverMessage, sendReceiveM
             <button
                 id="send"
                 type="submit"
-                onClick={async () => {
+                onClick={(event) => {
+                    const dateTime = new Date();
+                    setClientMessage(`Message: ${clientMessage} at time ${dateTime.toString()}`);
                     sendReceiveMessage();
                 }}>
+
                 Send
             </button>
 
