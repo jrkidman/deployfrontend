@@ -4,8 +4,8 @@ import React from 'react'
 const HomePage = ({ clientMessage, setClientMessage, serverMessage, sendReceiveMessage }) => {
     return (
         <div>
-            <div>Client:{clientMessage}</div>
-            <div>Server:{serverMessage}</div>
+            <div>Client: {clientMessage}</div>
+            <div>Server: {serverMessage}</div>
 
             <label>Input:</label>
             <input
