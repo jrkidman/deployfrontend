@@ -3,7 +3,10 @@ import { Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
 import { useState } from "react";
 import HomePage from "./Pages/HomePage";
+
 import PostUser from "./Pages/PostUser";
+import { useEffect } from "react";
+
 const urlEndpoint = process.env.REACT_APP_URL_ENDPOINT;
 
 function App() {
@@ -12,7 +15,6 @@ function App() {
   const [userList, setUserList] = useState([]);
 
   const sendReceiveMessage = async () => {
-    // console.log("client message: ", clientMessage);
     const response = await fetch(`${urlEndpoint}/post-message`, {
       method: "POST",
       headers: {

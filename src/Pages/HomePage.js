@@ -25,6 +25,7 @@ const HomePage = ({
         );
       })}
 
+
       <label>Input:</label>
       <input
         type="text"
