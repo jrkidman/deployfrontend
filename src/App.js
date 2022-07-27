@@ -1,16 +1,17 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import { useState } from 'react';
-import HomePage from './Pages/HomePage';
+import { useEffect } from "react";
+import { useState } from "react";
+import HomePage from "./Pages/HomePage";
+
 import PostUser from "./Pages/PostUser";
 import { useEffect } from "react";
 
 const urlEndpoint = process.env.REACT_APP_URL_ENDPOINT;
 
 function App() {
-
-  const [clientMessage, setClientMessage] = useState('');
-  const [serverMessage, setServerMessage] = useState('');
+  const [clientMessage, setClientMessage] = useState("");
+  const [serverMessage, setServerMessage] = useState("");
   const [userList, setUserList] = useState([]);
 
   const sendReceiveMessage = async () => {

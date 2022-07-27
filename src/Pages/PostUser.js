@@ -8,10 +8,8 @@ const PostUser = ({ postUserData }) => {
   return (
     <div>
       PostUser
-
       <div>
         <br />
-
         <label>First Name:</label>
         <input
           type="text"
@@ -22,7 +20,6 @@ const PostUser = ({ postUserData }) => {
         />
         <br />
         <br />
-
         <label>Last Name:</label>
         <input
           type="text"
@@ -43,17 +40,18 @@ const PostUser = ({ postUserData }) => {
         />
         <br />
         <br />
-
         <button
           type="submit"
           onClick={() => {
             postUserData({
-              firstName,
-              lastName,
-              email,
+              firstName: firstName,
+              lastName: lastName,
+              email: email,
             });
           }}
-        >Submit</button>
+        >
+          Submit
+        </button>
       </div>
     </div>
   );
