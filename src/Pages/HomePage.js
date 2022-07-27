@@ -25,7 +25,6 @@ const HomePage = ({
         );
       })}
 
-
       <label>Input:</label>
       <input
         type="text"
@@ -39,7 +38,6 @@ const HomePage = ({
       ></input>
       <br></br>
       <br></br>
-
       <button
         id="send"
         type="submit"
