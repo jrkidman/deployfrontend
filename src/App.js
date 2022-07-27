@@ -9,6 +9,7 @@ const urlEndpoint = process.env.REACT_APP_URL_ENDPOINT;
 function App() {
   const [clientMessage, setClientMessage] = useState('');
   const [serverMessage, setServerMessage] = useState('');
+  const [userList, setUserList] = useState([]);
 
   const sendReceiveMessage = async () => {
     console.log("client message: ", clientMessage)
@@ -23,22 +24,34 @@ function App() {
     setServerMessage(responseJSON.serverMessage)
   }
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const apiResponse = await fetch(`${urlEndpoint}/get-users`);
+      const apiJSON = await apiResponse.json();
+      setUserList(apiJSON);
+      return apiJSON;
+    };
+    //   fetchUserList();
+    // }, []);
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <Routes>
-          <Route index element={<HomePage
-            clientMessage={clientMessage}
-            setClientMessage={setClientMessage}
-            serverMessage={serverMessage}
-            sendReceiveMessage={sendReceiveMessage}
-          />} />
-        </Routes>
 
-      </header>
-    </div>
-  );
-}
+
+
+    return (
+      <div className="App">
+        <header className="App-header">
+          <Routes>
+            <Route index element={<HomePage
+              clientMessage={clientMessage}
+              setClientMessage={setClientMessage}
+              serverMessage={serverMessage}
+              sendReceiveMessage={sendReceiveMessage}
+            />} />
+          </Routes>
+
+        </header>
+      </div>
+    );
+  }
 
 export default App;
