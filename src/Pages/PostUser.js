@@ -9,6 +9,8 @@ const PostUser = ({ postUserData }) => {
     <div>
       PostUser
       <div>
+        <br />
+        <label>First Name:</label>
         <input
           type="text"
           onChange={(event) => {
@@ -16,6 +18,9 @@ const PostUser = ({ postUserData }) => {
             setFirstName(newFirstName);
           }}
         />
+        <br />
+        <br />
+        <label>Last Name:</label>
         <input
           type="text"
           onChange={(event) => {
@@ -23,6 +28,9 @@ const PostUser = ({ postUserData }) => {
             setLastName(newLastName);
           }}
         />
+        <br />
+        <br />
+        <label>Email:</label>
         <input
           type="text"
           onChange={(event) => {
@@ -30,16 +38,20 @@ const PostUser = ({ postUserData }) => {
             setEmail(newEmail);
           }}
         />
+        <br />
+        <br />
         <button
           type="submit"
           onClick={() => {
             postUserData({
-              firstName,
-              lastName,
-              email,
+              firstName: firstName,
+              lastName: lastName,
+              email: email,
             });
           }}
-        />
+        >
+          Submit
+        </button>
       </div>
     </div>
   );

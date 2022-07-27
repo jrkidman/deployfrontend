@@ -1,19 +1,18 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-
-import { useState } from 'react';
-import HomePage from './Pages/HomePage';
+import { useEffect } from "react";
+import { useState } from "react";
+import HomePage from "./Pages/HomePage";
 import PostUser from "./Pages/PostUser";
 const urlEndpoint = process.env.REACT_APP_URL_ENDPOINT;
 
 function App() {
-
-  const [clientMessage, setClientMessage] = useState('');
-  const [serverMessage, setServerMessage] = useState('');
+  const [clientMessage, setClientMessage] = useState("");
+  const [serverMessage, setServerMessage] = useState("");
   const [userList, setUserList] = useState([]);
 
   const sendReceiveMessage = async () => {
-    console.log("client message: ", clientMessage);
+    // console.log("client message: ", clientMessage);
     const response = await fetch(`${urlEndpoint}/post-message`, {
       method: "POST",
       headers: {
@@ -24,19 +23,19 @@ function App() {
     const responseJSON = await response.json();
     setServerMessage(responseJSON.serverMessage);
   };
-  
+
   const postUserData = async (userData) => {
     const response = await fetch(`${urlEndpoint}/create-user`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ userData }),
+      body: JSON.stringify(userData),
     });
     const responseJSON = await response.json();
     return responseJSON;
   };
-  
+
   useEffect(() => {
     const fetchData = async () => {
       const apiResponse = await fetch(`${urlEndpoint}/get-users`);
@@ -45,7 +44,7 @@ function App() {
       return apiJSON;
     };
     fetchData();
-   }, []);
+  }, []);
 
   return (
     <div className="App">
@@ -59,6 +58,7 @@ function App() {
                 setClientMessage={setClientMessage}
                 serverMessage={serverMessage}
                 sendReceiveMessage={sendReceiveMessage}
+                userList={userList}
               />
             }
           />
