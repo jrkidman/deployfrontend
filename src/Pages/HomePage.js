@@ -7,14 +7,18 @@ const HomePage = ({ clientMessage, setClientMessage, serverMessage, sendReceiveM
             <div>Client: {clientMessage}</div>
             <div>Server: {serverMessage}</div>
             {/* map function to iterate through userlist state variable, should return first name, last name, email of each user */}
-            {userList.map((user) => (
-                <div className="users">
-                    <strong>{user.id}</strong>
-                    <p>{user.firstName}</p>
-                    <p>{user.lastName}</p>
-                    <p>{user.email}</p>
-                </div>
-            ))}
+            {userList.map((user) => {
+                // sendReceiveMessage();
+                return (
+                    <div className="users">
+                        <strong>{user.id}</strong>
+                        <p>{user.firstName}</p>
+                        <p>{user.lastName}</p>
+                        <p>{user.email}</p>
+                    </div>
+
+                )
+            })}
 
             <label>Input:</label>
             <input
