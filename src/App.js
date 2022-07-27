@@ -3,7 +3,6 @@ import { Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
 import { useState } from "react";
 import HomePage from "./Pages/HomePage";
-
 import PostUser from "./Pages/PostUser";
 
 const urlEndpoint = process.env.REACT_APP_URL_ENDPOINT;
